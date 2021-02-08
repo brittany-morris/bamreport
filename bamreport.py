@@ -102,6 +102,31 @@ drop.grid(column = 3, row = 1)
 #displays selection
 myButton = Button(root, text = "show selection", command = show4).grid(column = 3, row = 2)
 
+#creating a checkbox for selecting the incident type
+
+typeincidentlbl = Label(root, text = "Select the type of incident (select all that apply)").grid(column = 0, row = 5)
+
+incidentvar1 = IntVar()
+incidentvar2 = IntVar()
+incidentvar3 = IntVar()
+incidentvar4 = IntVar()
+incidentvar5 = IntVar()
+incidentvar6 = IntVar()
+incidentvar7 = IntVar()
+
+type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", variable = incidentvar1, anchor = W).grid(column = 0, row = 6)
+
+type_cb2 = Checkbutton(root, text = "Financial Crime", variable = incidentvar2, anchor = W).grid(column = 0, row = 7)
+
+type_cb3 = Checkbutton(root, text = "Insider Threat", variable = incidentvar3, anchor = W).grid(column = 0, row = 8)
+
+type_cb4 = Checkbutton(root, text = "Destructive Attacks", variable = incidentvar4, anchor = W).grid(column = 0, row = 9)
+
+type_cb5 = Checkbutton(root, text = "Protected Health Information", variable = incidentvar5, anchor = W).grid(column = 0, row = 10)
+
+type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", variable = incidentvar6, anchor = W).grid(column = 0, row = 11)
+
+type_cb7 = Checkbutton(root, text = "Other", variable = incidentvar7, anchor = W).grid(column = 0, row = 12)
 
 
 #making an input text field
@@ -145,33 +170,6 @@ canvas.drawText(text_object)
 canvas.showPage() 
 canvas.save() 
 
-
-
-#creating a checkbox for selecting the incident type
-
-typeincidentlbl = Label(root, text = "Select the type of incident (select all that apply)").grid(column = 0, row = 5)
-
-incidentvar1 = IntVar()
-incidentvar2 = IntVar()
-incidentvar3 = IntVar()
-incidentvar4 = IntVar()
-incidentvar5 = IntVar()
-incidentvar6 = IntVar()
-incidentvar7 = IntVar()
-
-type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", variable = incidentvar1, anchor = W).grid(column = 0, row = 6)
-
-type_cb2 = Checkbutton(root, text = "Financial Crime", variable = incidentvar2, anchor = W).grid(column = 0, row = 7)
-
-type_cb3 = Checkbutton(root, text = "Insider Threat", variable = incidentvar3, anchor = W).grid(column = 0, row = 8)
-
-type_cb4 = Checkbutton(root, text = "Destructive Attacks", variable = incidentvar4, anchor = W).grid(column = 0, row = 9)
-
-type_cb5 = Checkbutton(root, text = "Protected Health Information", variable = incidentvar5, anchor = W).grid(column = 0, row = 10)
-
-type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", variable = incidentvar6, anchor = W).grid(column = 0, row = 11)
-
-type_cb7 = Checkbutton(root, text = "Other", variable = incidentvar7, anchor = W).grid(column = 0, row = 12)
 
 #call the mainloop funtion to run the program
 root.mainloop()
