@@ -10,52 +10,169 @@ root = Tk()
 root.title('Bam Reporting')
 
 #set the size
-root.geometry('1000x1000')
+root.geometry('1250x1000')
 
 #create a label widget
 #put it on a grid to determine where the label lies on the window
 lbl = Label(root, text = "Welcome To Bam Reporting",font=25)
-lbl.grid(column = 0, row = 2)
+lbl.grid(column = 0, row = 0)
 
 
+#Report Type drop Down
+def reporttype():
+    reporttype_label = Label(root, text=reporttype_click.get()).grid(column = 0, row =3, padx=40, pady=10 )
+    global report_type
+    report_type = reporttype_click.get()
 
-#making a date entry widget
+reporttype_click = StringVar()
+reporttype_click.set("Select Report Type")
 
-select_date_lbl = Label(root, text = "Please select the date").grid(column = 2, row = 1) 
-
-cal = Calendar(root, selectmode = "day", year = 2021, month = 2, day = 5)
-cal.grid(column = 2 , row = 2)
-
-def grab_date():
-    cal_label.config(text = cal.get_date())
-
-cal_button = Button(root, text = "Select Date", command = grab_date)
-cal_button.grid(column = 3, row = 2)
-
-cal_label = Label(root, text = "")
-cal_label.grid(column = 3, row = 1)
-
-
-
-#creating a dropdown menu
-def show2():
-    lbl2 = Label(root, text=clicked1.get()).grid(column = 2, row = 3)
-
-clicked1 = StringVar()
-clicked1.set("Report Type")
-
-options1 = [
+reporttype_options = [
         "Incident Response Report"
         ]
 
-drop = OptionMenu(root, clicked1, *options1)
-drop.grid(column = 0, row = 4)
+reporttypedrop = OptionMenu(root, reporttype_click, *reporttype_options)
+reporttypedrop.grid(column = 0, row = 1, padx=40, pady=10)
 
-#displays selection
-myButton = Button(root, text = "show selection", command = show2).grid(column = 0, row = 5)
+# Report Type Display selection
+reporttypebutton = Button(root, text = "show selection", command = reporttype).grid(column = 0, row = 2, padx=40, pady=10)
+
+
+# Month drop Down
+def month():
+    month_label = Label(root, text=month_click.get()).grid(column = 1, row = 3, padx=40, pady=10)
+    global month_drop
+    month_drop = month_click.get()
+
+month_click = StringVar()
+month_click.set("Select Month")
+
+month_options = [
+        "January", "February", "March", "April", "May", "June", "July", "August",
+        "September", "October", "November", "December"
+        ]
+
+monthdrop = OptionMenu(root, month_click, *month_options)
+monthdrop.grid(column = 1, row = 1, padx=40, pady=10)
+
+# Month Display selection
+monthbutton = Button(root, text = "Show Month", command = month).grid(column = 1, row = 2, padx=40, pady=10)
+
+
+# Day drop Down
+def day():
+    day_label = Label(root, text=day_click.get()).grid(column = 2, row = 3, padx=40, pady=10)
+    global day_drop
+    day_drop = day_click.get()
+
+day_click = StringVar()
+day_click.set("Select Day")
+
+day_options = [
+        "1", "2", "3", "4", "5", "6", "7", "8",
+        "9", "10", "11", "12", "13", "14", "15", "16",
+        "17", "18", "19", "20", "21", "22", "23", "24",
+        "25", "26", "27", "28", "29", "30", "31"
+        ]
+
+daydrop = OptionMenu(root, day_click, *day_options)
+daydrop.grid(column = 2, row = 1, padx=40, pady=10)
+
+# Day Display selection
+daybutton = Button(root, text = "Show Day", command = day).grid(column = 2, row = 2, padx=40, pady=10)
+
+# Year drop Down
+def year():
+    year_label = Label(root, text=year_click.get()).grid(column = 3, row = 3, padx=40, pady=10)
+    global year_drop
+    year_drop = year_click.get()
+
+year_click = StringVar()
+year_click.set("Select Year")
+
+year_options = [
+        "2021", "2022", "2023", "2024", "2025"
+        ]
+
+yeardrop = OptionMenu(root, year_click, *year_options)
+yeardrop.grid(column = 3, row = 1, padx=40, pady=10)
+
+# Year Display selection
+yearbutton = Button(root, text = "Show Year", command = year).grid(column = 3, row = 2, padx=40, pady=10)
+
+
+# Hour drop Down
+def hour():
+    hour_label = Label(root, text=hour_click.get()).grid(column = 1, row = 6, padx=40, pady=10)
+    global hour_drop
+    hour_drop = hour_click.get()
+
+hour_click = StringVar()
+hour_click.set("Select Hour")
+
+hour_options = [
+        "1", "2", "3", "4", "5", "6", "7", "8",
+        "9", "10", "11", "12"
+        ]
+
+hourdrop = OptionMenu(root, hour_click, *hour_options)
+hourdrop.grid(column = 1, row = 4, padx=40, pady=10)
+
+# Hour Display selection
+hourbutton = Button(root, text = "Show Hour", command = hour).grid(column = 1, row = 5, padx=40, pady=10)
+
+
+# Minute drop Down
+def minute():
+    minute_label = Label(root, text=minute_click.get()).grid(column = 2, row = 6, padx=40, pady=10)
+    global minute_drop
+    minute_drop = minute_click.get()
+
+minute_click = StringVar()
+minute_click.set("Select Minute")
+
+minute_options = [
+        "00", "05", "10", "15", "20", "25", "30", "35",
+        "40", "45", "50", "55"
+        ]
+
+minutedrop = OptionMenu(root, minute_click, *minute_options)
+minutedrop.grid(column = 2, row = 4, padx=40, pady=10)
+
+# Minute Display selection
+minutebutton = Button(root, text = "Show Minute", command = minute).grid(column = 2, row = 5, padx=40, pady=10)
+
+
+# AmPM drop Down
+def ampm():
+    ampm_label = Label(root, text=ampm_click.get()).grid(column = 3, row = 6, padx=40, pady=10)
+    global ampm_drop
+    ampm_drop = ampm_click.get()
+
+ampm_click = StringVar()
+ampm_click.set("Select AM/PM")
+
+ampm_options = [
+        "AM", "PM"
+        ]
+
+ampmdrop = OptionMenu(root, ampm_click, *ampm_options)
+ampmdrop.grid(column = 3, row = 4, padx=40, pady=10)
+
+# AMPM Display selection
+ampmbutton = Button(root, text = "Show AM/PM", command = ampm).grid(column = 3, row = 5, padx=40, pady=10)
 
 
 #creating a checkbox for selecting the incident type
+incident_list = []
+
+def incident_selection():
+	global incident_list
+	for i in type_list:
+		if i == 1:
+			incident_list += i
+	 
+
 
 typeincidentlbl = Label(root, text = "Select the type of incident (select all that apply)").grid(column = 0, row = 7)
 
@@ -67,132 +184,110 @@ incidentvar5 = IntVar()
 incidentvar6 = IntVar()
 incidentvar7 = IntVar()
 
-type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", variable = incidentvar1, anchor = W).grid(column = 0, row = 8)
+type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", variable = incidentvar1).grid(column = 0, row = 8, sticky = W)
 
-type_cb2 = Checkbutton(root, text = "Financial Crime", variable = incidentvar2, anchor = W).grid(column = 0, row = 9)
+type_cb2 = Checkbutton(root, text = "Financial Crime", variable = incidentvar2).grid(column = 0, row = 9, sticky = W)
 
-type_cb3 = Checkbutton(root, text = "Insider Threat", variable = incidentvar3, anchor = W).grid(column = 0, row = 10)
+type_cb3 = Checkbutton(root, text = "Insider Threat", variable = incidentvar3).grid(column = 0, row = 10, sticky = W)
 
-type_cb4 = Checkbutton(root, text = "Destructive Attacks", variable = incidentvar4, anchor = W).grid(column = 0, row = 11)
+type_cb4 = Checkbutton(root, text = "Destructive Attacks", variable = incidentvar4).grid(column = 0, row = 11, sticky = W)
 
-type_cb5 = Checkbutton(root, text = "Protected Health Information", variable = incidentvar5, anchor = W).grid(column = 0, row = 12)
+type_cb5 = Checkbutton(root, text = "Protected Health Information", variable = incidentvar5).grid(column = 0, row = 12, sticky = W)
 
-type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", variable = incidentvar6, anchor = W).grid(column = 0, row = 13)
+type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", variable = incidentvar6).grid(column = 0, row = 13, sticky = W)
 
-type_cb7 = Checkbutton(root, text = "Other", variable = incidentvar7, anchor = W).grid(column = 0, row = 14)
+type_cb7 = Checkbutton(root, text = "Other", variable = incidentvar7).grid(column = 0, row = 14, sticky = W)
+
+type_list = [
+	int(incidentvar1.get()),
+	int(incidentvar2.get()),
+	int(incidentvar3.get()),
+	int(incidentvar4.get()),
+	int(incidentvar5.get()),
+	int(incidentvar6.get()),
+	int(incidentvar7.get())
+]
 
 
 #making an input text field to PDF
 canvas = Canvas("user_input.pdf")
 user_in = str() 
 
-#time label and input
-time = Text(root, height =1, width = 30) 
-time_label=Label(root, text="Time:",font=10)
-time_label.grid(column =2, row=4, padx=40, pady=10)
-time.grid(column = 3, row =4)
-
-#stakeholder label and input
-stakeholders = Text(root, height =1, width = 30) 
-stakeholders_label=Label(root, text="Stakeholders:",font=10)
-stakeholders_label.grid(column = 2, row =5, padx=40, pady=10) 
-stakeholders.grid(column = 3, row =5)
 
 #affect applicaitons/user accounts/networks label and input
-affected = Text(root, height =1, width = 30) 
+affected = Text(root, height =3, width = 60) 
 affected_label=Label(root, text="Affected Applications/User Accounts/Networks: ",font=10)
-affected_label.grid(column = 2, row =6, padx=40, pady=10) 
-affected.grid(column = 3, row =6)
+affected_label.grid(column = 1, row =7, padx=20, pady=20, sticky = E) 
+affected.grid(column = 2, columnspan =2, row =7)
 
 #malicious software/exploited vulnerabilities label and input
-malicious = Text(root, height =1, width = 30) 
-malicious_label=Label(root, text="Malicious Software / Exploited Vulnerabilities: ",font=10)
-malicious_label.grid(column = 2, row =7, padx=40, pady=10) 
-malicious.grid(column = 3, row =7)
+malicious = Text(root, height =3, width = 60) 
+malicious_label=Label(root, text="Exploited Vulnerabilities: ",font=10)
+malicious_label.grid(column = 1, row =8, padx=20, pady=20, sticky = E) 
+malicious.grid(column = 2, columnspan =2, row =8)
 
 #information accessed label and input
-infoaccessed = Text(root, height =1, width = 30) 
+infoaccessed = Text(root, height =3, width = 60) 
 infoaccessed_label=Label(root, text="Information Accessed: ",font=10)
-infoaccessed_label.grid(column = 2, row =8, padx=40, pady=10) 
-infoaccessed.grid(column = 3, row =8)
+infoaccessed_label.grid(column = 1, row =9, padx=20, pady=20, sticky = E) 
+infoaccessed.grid(column = 2, columnspan =2, row =9)
 
-#Initial attack Vector label and input
-attackV = Text(root, height =1, width = 30) 
-attackV_label=Label(root, text="Initial attack Vector: ",font=10)
-attackV_label.grid(column = 2, row =9, padx=40, pady=10) 
-attackV.grid(column = 3, row =9)
-
-#Live Response Analysis label and input
-liveresponse = Text(root, height =1, width = 30) 
-liveresponse_label=Label(root, text="Live Response Analysis: ",font=10)
-liveresponse_label.grid(column = 2, row =10, padx=40, pady=10) 
-liveresponse.grid(column = 3, row =10)
-
-#Log Analysis label and input
-loganalysis = Text(root, height =1, width = 30) 
-loganalysis_label=Label(root, text="Log Analysis: ",font=10)
-loganalysis_label.grid(column = 2, row =11, padx=40, pady=10) 
-loganalysis.grid(column = 3, row =11)
 
 #Malware Analysis label and input
-malwareA = Text(root, height =1, width = 30) 
+malwareA = Text(root, height =3, width = 60) 
 malwareA_label=Label(root, text="Malware Analysis: ",font=10)
-malwareA_label.grid(column = 2, row =12, padx=40, pady=10) 
-malwareA.grid(column = 3, row =12)
+malwareA_label.grid(column = 1, row =10, padx=20, pady=20, sticky = E) 
+malwareA.grid(column = 2, columnspan =2, row =10)
 
-#Forensic Analysis label and input
-forensicA = Text(root, height =1, width = 30) 
-forensicA_label=Label(root, text="Forensic Analysis: ",font=10)
-forensicA_label.grid(column = 2, row =13, padx=40, pady=10) 
-forensicA.grid(column = 3, row =13)
 
 #Severity of Exposure label and input
-exposure = Text(root, height =1, width = 30) 
+exposure = Text(root, height =3, width = 60) 
 exposure_label=Label(root, text="Severity of Exposure: ",font=10)
-exposure_label.grid(column = 2, row =14, padx=40, pady=10) 
-exposure.grid(column = 3, row =14)
+exposure_label.grid(column = 1, row =11, padx=20, pady=20, sticky = E) 
+exposure.grid(column = 2, columnspan =2, row =11)
 
 #Major Findings label and input
-majorfindings = Text(root, height =1, width = 30) 
+majorfindings = Text(root, height =3, width = 60) 
 majorfindings_label=Label(root, text="Major Findings: ",font=10)
-majorfindings_label.grid(column = 2, row =15, padx=40, pady=10) 
-majorfindings.grid(column = 3, row =15)
+majorfindings_label.grid(column = 1, row =12, padx=20, pady=20, sticky = E) 
+majorfindings.grid(column = 2, columnspan =2, row =12)
 
 #Containment and Eradication Activities label and input
-containmentact = Text(root, height =1, width = 30) 
+containmentact = Text(root, height =3, width = 60) 
 containmentact_label=Label(root, text="Containment and Eradication Activities: ",font=10)
-containmentact_label.grid(column = 2, row =16, padx=40, pady=10) 
-containmentact.grid(column = 3, row =16)
+containmentact_label.grid(column = 1, row =13, padx=20, pady=20, sticky = E) 
+containmentact.grid(column = 2, columnspan =2, row =13)
 
 #Strategic Recommendations label and input
-strategicrec = Text(root, height =1, width = 30) 
+strategicrec = Text(root, height =3, width = 60) 
 strategicrec_label=Label(root, text="Strategic Recommendations: ",font=10)
-strategicrec_label.grid(column = 2, row =17, padx=40, pady=10) 
-strategicrec.grid(column = 3, row =17)
+strategicrec_label.grid(column = 1, row =14, padx=20, pady=20, sticky = E) 
+strategicrec.grid(column = 2, columnspan =2, row =14)
 
-def submit(): 
+def submit():
+     
     global user_in, root
-    options1_input = options1.get(1.0, "end-1c")
-    time_input = "- Time: " + time.get(1.0, "end-1c")
-    stakeholders_input = "- Stakeholders: " + stakeholders.get(1.0, "end-1c")
+    report_type_input = "- Report Type: " + report_type
+    month_drop_input = "- Date: " + month_drop
+    day_drop_input = day_drop
+    year_drop_input = year_drop
+    hour_drop_input = "- Time: " + hour_drop
+    minute_drop_input = minute_drop
+    ampm_drop_input = ampm_drop
+    #incident_list_input = "- Type of Incident: " + ' '.join(incident_list)
     affected_input = "- Affected Applications/User Accounts/Networks: " + affected.get(1.0, "end-1c")
-    malicious_input = "- Malicious Software / Exploited Vulnerabilities: " + malicious.get(1.0, "end-1c")
+    malicious_input = "- Exploited Vulnerabilities: " + malicious.get(1.0, "end-1c")
     infoaccessed_input = "- Information Accessed: " + infoaccessed.get(1.0, "end-1c")
-    attackV_input = "- Initial attack Vector: " + attackV.get(1.0, "end-1c")
-    liveresponse_input = "- Live Response Analysis: " + liveresponse.get(1.0, "end-1c")
-    loganalysis_input = "- Log Analysis: " + loganalysis.get(1.0, "end-1c")
-    malwareA_input = "- Malware Analysis: " + malwareA.get(1.0, "end-1c")
-    forensicA_input = "- Forensic Analysis: " + forensicA.get(1.0, "end-1c")
     exposure_input = "- Severity of Exposure: " + exposure.get(1.0, "end-1c")
     majorfindings_input = "- Major Findings: " + majorfindings.get(1.0, "end-1c")
     containmentact_input = "- Containment and Eradication Activities: " + containmentact.get(1.0, "end-1c")
     strategicrec_input = "- Strategic Recommendations: " + strategicrec.get(1.0, "end-1c")
 
 
-    user_in = (time_input + '\n' + stakeholders_input + '\n' + affected_input + '\n' + malicious_input
-+ '\n' + infoaccessed_input + '\n' + attackV_input + '\n' + liveresponse_input + '\n' + loganalysis_input
-+ '\n' + malwareA_input + '\n' + forensicA_input + '\n' + exposure_input + '\n' + majorfindings_input
-+ '\n' + containmentact_input + '\n' + strategicrec_input)
+    user_in = (report_type_input + '\n' + month_drop_input + ' ' + day_drop_input + ', ' + year_drop_input + '\n' 
++ hour_drop_input + ':' + minute_drop_input + ' ' + ampm_drop_input + '\n' + affected_input + '\n' + malicious_input
++ '\n' + infoaccessed_input + '\n' + exposure_input + '\n' + majorfindings_input
++ '\n' + containmentact_input + '\n' + strategicrec_input + '\n' )
     
     root.destroy() 
  
