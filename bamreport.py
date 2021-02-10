@@ -20,7 +20,7 @@ lbl.grid(column = 0, row = 0)
 
 #Report Type drop Down
 def reporttype():
-    reporttype_label = Label(root, text=reporttype_click.get()).grid(column = 0, row =3, padx=40, pady=10 )
+    Label(root, text=reporttype_click.get()).grid(column = 0, row =3, padx=40, pady=10 )
     global report_type
     report_type = reporttype_click.get()
 
@@ -35,12 +35,12 @@ reporttypedrop = OptionMenu(root, reporttype_click, *reporttype_options)
 reporttypedrop.grid(column = 0, row = 1, padx=40, pady=10)
 
 # Report Type Display selection
-reporttypebutton = Button(root, text = "show selection", command = reporttype).grid(column = 0, row = 2, padx=40, pady=10)
+Button(root, text = "show selection", command = reporttype).grid(column = 0, row = 2, padx=40, pady=10)
 
 
 # Month drop Down
 def month():
-    month_label = Label(root, text=month_click.get()).grid(column = 1, row = 3, padx=40, pady=10)
+    Label(root, text=month_click.get()).grid(column = 1, row = 3, padx=40, pady=10)
     global month_drop
     month_drop = month_click.get()
 
@@ -56,12 +56,12 @@ monthdrop = OptionMenu(root, month_click, *month_options)
 monthdrop.grid(column = 1, row = 1, padx=40, pady=10)
 
 # Month Display selection
-monthbutton = Button(root, text = "Show Month", command = month).grid(column = 1, row = 2, padx=40, pady=10)
+Button(root, text = "Show Month", command = month).grid(column = 1, row = 2, padx=40, pady=10)
 
 
 # Day drop Down
 def day():
-    day_label = Label(root, text=day_click.get()).grid(column = 2, row = 3, padx=40, pady=10)
+    Label(root, text=day_click.get()).grid(column = 2, row = 3, padx=40, pady=10)
     global day_drop
     day_drop = day_click.get()
 
@@ -79,11 +79,11 @@ daydrop = OptionMenu(root, day_click, *day_options)
 daydrop.grid(column = 2, row = 1, padx=40, pady=10)
 
 # Day Display selection
-daybutton = Button(root, text = "Show Day", command = day).grid(column = 2, row = 2, padx=40, pady=10)
+Button(root, text = "Show Day", command = day).grid(column = 2, row = 2, padx=40, pady=10)
 
 # Year drop Down
 def year():
-    year_label = Label(root, text=year_click.get()).grid(column = 3, row = 3, padx=40, pady=10)
+    Label(root, text=year_click.get()).grid(column = 3, row = 3, padx=40, pady=10)
     global year_drop
     year_drop = year_click.get()
 
@@ -98,12 +98,12 @@ yeardrop = OptionMenu(root, year_click, *year_options)
 yeardrop.grid(column = 3, row = 1, padx=40, pady=10)
 
 # Year Display selection
-yearbutton = Button(root, text = "Show Year", command = year).grid(column = 3, row = 2, padx=40, pady=10)
+Button(root, text = "Show Year", command = year).grid(column = 3, row = 2, padx=40, pady=10)
 
 
 # Hour drop Down
 def hour():
-    hour_label = Label(root, text=hour_click.get()).grid(column = 1, row = 6, padx=40, pady=10)
+    Label(root, text=hour_click.get()).grid(column = 1, row = 6, padx=40, pady=10)
     global hour_drop
     hour_drop = hour_click.get()
 
@@ -119,12 +119,12 @@ hourdrop = OptionMenu(root, hour_click, *hour_options)
 hourdrop.grid(column = 1, row = 4, padx=40, pady=10)
 
 # Hour Display selection
-hourbutton = Button(root, text = "Show Hour", command = hour).grid(column = 1, row = 5, padx=40, pady=10)
+Button(root, text = "Show Hour", command = hour).grid(column = 1, row = 5, padx=40, pady=10)
 
 
 # Minute drop Down
 def minute():
-    minute_label = Label(root, text=minute_click.get()).grid(column = 2, row = 6, padx=40, pady=10)
+    Label(root, text=minute_click.get()).grid(column = 2, row = 6, padx=40, pady=10)
     global minute_drop
     minute_drop = minute_click.get()
 
@@ -140,12 +140,12 @@ minutedrop = OptionMenu(root, minute_click, *minute_options)
 minutedrop.grid(column = 2, row = 4, padx=40, pady=10)
 
 # Minute Display selection
-minutebutton = Button(root, text = "Show Minute", command = minute).grid(column = 2, row = 5, padx=40, pady=10)
+Button(root, text = "Show Minute", command = minute).grid(column = 2, row = 5, padx=40, pady=10)
 
 
 # AmPM drop Down
 def ampm():
-    ampm_label = Label(root, text=ampm_click.get()).grid(column = 3, row = 6, padx=40, pady=10)
+    Label(root, text=ampm_click.get()).grid(column = 3, row = 6, padx=40, pady=10)
     global ampm_drop
     ampm_drop = ampm_click.get()
 
@@ -160,7 +160,7 @@ ampmdrop = OptionMenu(root, ampm_click, *ampm_options)
 ampmdrop.grid(column = 3, row = 4, padx=40, pady=10)
 
 # AMPM Display selection
-ampmbutton = Button(root, text = "Show AM/PM", command = ampm).grid(column = 3, row = 5, padx=40, pady=10)
+Button(root, text = "Show AM/PM", command = ampm).grid(column = 3, row = 5, padx=40, pady=10)
 
 
 #creating a checkbox for selecting the incident type
@@ -214,51 +214,51 @@ user_in = str()
 
 #affect applicaitons/user accounts/networks label and input
 affected = Text(root, height =3, width = 60) 
-affected_label=Label(root, text="Affected Applications/User Accounts/Networks: ",font=10)
+affected_label=Label(root, text="Affected Applications/User Accounts/Networks: ")
 affected_label.grid(column = 1, row =7, padx=20, pady=20, sticky = E) 
 affected.grid(column = 2, columnspan =2, row =7)
 
 #malicious software/exploited vulnerabilities label and input
 malicious = Text(root, height =3, width = 60) 
-malicious_label=Label(root, text="Exploited Vulnerabilities: ",font=10)
+malicious_label=Label(root, text="Exploited Vulnerabilities: ")
 malicious_label.grid(column = 1, row =8, padx=20, pady=20, sticky = E) 
 malicious.grid(column = 2, columnspan =2, row =8)
 
 #information accessed label and input
 infoaccessed = Text(root, height =3, width = 60) 
-infoaccessed_label=Label(root, text="Information Accessed: ",font=10)
+infoaccessed_label=Label(root, text="Information Accessed: ")
 infoaccessed_label.grid(column = 1, row =9, padx=20, pady=20, sticky = E) 
 infoaccessed.grid(column = 2, columnspan =2, row =9)
 
 
 #Malware Analysis label and input
 malwareA = Text(root, height =3, width = 60) 
-malwareA_label=Label(root, text="Malware Analysis: ",font=10)
+malwareA_label=Label(root, text="Malware Analysis: ")
 malwareA_label.grid(column = 1, row =10, padx=20, pady=20, sticky = E) 
 malwareA.grid(column = 2, columnspan =2, row =10)
 
 
 #Severity of Exposure label and input
 exposure = Text(root, height =3, width = 60) 
-exposure_label=Label(root, text="Severity of Exposure: ",font=10)
+exposure_label=Label(root, text="Severity of Exposure: ")
 exposure_label.grid(column = 1, row =11, padx=20, pady=20, sticky = E) 
 exposure.grid(column = 2, columnspan =2, row =11)
 
 #Major Findings label and input
 majorfindings = Text(root, height =3, width = 60) 
-majorfindings_label=Label(root, text="Major Findings: ",font=10)
+majorfindings_label=Label(root, text="Major Findings: ")
 majorfindings_label.grid(column = 1, row =12, padx=20, pady=20, sticky = E) 
 majorfindings.grid(column = 2, columnspan =2, row =12)
 
 #Containment and Eradication Activities label and input
 containmentact = Text(root, height =3, width = 60) 
-containmentact_label=Label(root, text="Containment and Eradication Activities: ",font=10)
+containmentact_label=Label(root, text="Containment and Eradication Activities: ")
 containmentact_label.grid(column = 1, row =13, padx=20, pady=20, sticky = E) 
 containmentact.grid(column = 2, columnspan =2, row =13)
 
 #Strategic Recommendations label and input
 strategicrec = Text(root, height =3, width = 60) 
-strategicrec_label=Label(root, text="Strategic Recommendations: ",font=10)
+strategicrec_label=Label(root, text="Strategic Recommendations: ")
 strategicrec_label.grid(column = 1, row =14, padx=20, pady=20, sticky = E) 
 strategicrec.grid(column = 2, columnspan =2, row =14)
 
@@ -300,7 +300,6 @@ def submit():
     hour_drop_input = "- Time: " + hour_drop
     minute_drop_input = minute_drop
     ampm_drop_input = ampm_drop
-    #incident_list_input = "- Type of Incident: " + ' '.join(incident_list)
     affected_input = "- Affected Applications/User Accounts/Networks: " + affected.get(1.0, "end-1c")
     malicious_input = "- Exploited Vulnerabilities: " + malicious.get(1.0, "end-1c")
     infoaccessed_input = "- Information Accessed: " + infoaccessed.get(1.0, "end-1c")
@@ -319,6 +318,11 @@ def submit():
  
 submit_button = Button(root, text="submit", command=submit) 
 submit_button.grid(column = 2, row = 21) 
+
+
+
+
+
 
 #call the mainloop funtion to run the program
 root.mainloop()
