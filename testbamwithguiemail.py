@@ -199,19 +199,19 @@ incidentvar5 = IntVar()
 incidentvar6 = IntVar()
 incidentvar7 = IntVar()
 
-type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", background='#4C5F71', fg = "white", variable = incidentvar1).grid(column = 0, row = 8, sticky = W)
+type_cb1 = Checkbutton(root, text = "Intellectual Property Theft", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar1).grid(column = 0, row = 8, sticky = W)
 
-type_cb2 = Checkbutton(root, text = "Financial Crime", background='#4C5F71', fg = "white", variable = incidentvar2).grid(column = 0, row = 9, sticky = W)
+type_cb2 = Checkbutton(root, text = "Financial Crime", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar2).grid(column = 0, row = 9, sticky = W)
 
-type_cb3 = Checkbutton(root, text = "Insider Threat", background='#4C5F71', fg = "white", variable = incidentvar3).grid(column = 0, row = 10, sticky = W)
+type_cb3 = Checkbutton(root, text = "Insider Threat", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar3).grid(column = 0, row = 10, sticky = W)
 
-type_cb4 = Checkbutton(root, text = "Destructive Attacks", background='#4C5F71', fg = "white", variable = incidentvar4).grid(column = 0, row = 11, sticky = W)
+type_cb4 = Checkbutton(root, text = "Destructive Attacks", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar4).grid(column = 0, row = 11, sticky = W)
 
-type_cb5 = Checkbutton(root, text = "Protected Health Information", background='#4C5F71', fg = "white", variable = incidentvar5).grid(column = 0, row = 12, sticky = W)
+type_cb5 = Checkbutton(root, text = "Protected Health Information", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar5).grid(column = 0, row = 12, sticky = W)
 
-type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", background='#4C5F71', fg = "white", variable = incidentvar6).grid(column = 0, row = 13, sticky = W)
+type_cb6 = Checkbutton(root, text = "Personally Identifiable Information", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar6).grid(column = 0, row = 13, sticky = W)
 
-type_cb7 = Checkbutton(root, text = "Other", background='#4C5F71', fg = "white", variable = incidentvar7).grid(column = 0, row = 14, sticky = W)
+type_cb7 = Checkbutton(root, text = "Other", bg='#4C5F71', fg = "white", activebackground = '#4C5F71', activeforeground = 'white', selectcolor = '#4C5F71', variable = incidentvar7).grid(column = 0, row = 14, sticky = W)
 
 
 
@@ -311,7 +311,7 @@ def submit():
     day_drop_input = day_drop
     year_drop_input = year_drop
     time_input = "- Time of Incident: " + '\n' + '     - ' + time.get(1.0, "end-1c")
-    incident_list_input = "- Type of Incident: " + ' '.join(incident_list)
+    incident_list_input = "- Type of Incident: " + '\n' "     - "+ "".join(incident_list)
     affected_input = "- Affected Applications/User Accounts/Networks: "  + '\n' + '     - '+ affected.get(1.0, "end-1c")
     malicious_input = "- Exploited Vulnerabilities: "  + '\n' + '     - '+ malicious.get(1.0, "end-1c")
     infoaccessed_input = "- Information Accessed: " + '\n' + '     - ' + infoaccessed.get(1.0, "end-1c")
