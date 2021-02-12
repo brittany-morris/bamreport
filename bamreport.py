@@ -16,7 +16,7 @@ root.title('Bam Reporting')
 root.configure(background='#4C5F71')
 
 #set the size
-root.geometry('1060x800')
+root.geometry('1200x800')
 
 #create a label widget
 #put it on a grid to determine where the label lies on the window
@@ -25,10 +25,6 @@ lbl.grid(column = 1, row = 0)
 
 
 #Report Type drop Down
-def reporttype():
-    reporttype_label = Label(root, text=reporttype_click.get(), background='#4C5F71', fg = "white").grid(column = 0, row =3, padx=40, pady=10 )
-    global report_type
-    report_type = reporttype_click.get()
 
 reporttype_click = StringVar()
 reporttype_click.set("Select Report Type")
@@ -40,17 +36,10 @@ reporttype_options = [
 reporttypedrop = OptionMenu(root, reporttype_click, *reporttype_options)
 reporttypedrop.config(bg='#4C5F71', fg = "white", highlightbackground = '#4C5F71')
 reporttypedrop["menu"].config(bg='#4C5F71', fg = "white")
-reporttypedrop.grid(column = 0, row = 1, padx=40, pady=10)
-
-# Report Type Display selection
-reporttypebutton = Button(root, text = "show selection", command = reporttype, background='#4C5F71', fg = "white").grid(column = 0, row = 2, padx=40, pady=10)
+reporttypedrop.grid(column = 0, row = 1, padx=40, pady=30)
 
 
 # Month drop Down
-def month():
-    month_label = Label(root, text=month_click.get(), background='#4C5F71', fg = "white").grid(column = 1, row = 3, padx=40, pady=10)
-    global month_drop
-    month_drop = month_click.get()
 
 month_click = StringVar()
 month_click.set("Select Month")
@@ -63,17 +52,10 @@ month_options = [
 monthdrop = OptionMenu(root, month_click, *month_options)
 monthdrop.config(bg='#4C5F71', fg = "white", highlightbackground = '#4C5F71')
 monthdrop["menu"].config(bg='#4C5F71', fg = "white")
-monthdrop.grid(column = 1, row = 1, padx=40, pady=10)
-
-# Month Display selection
-monthbutton = Button(root, text = "Show Month", command = month, background='#4C5F71', fg = "white").grid(column = 1, row = 2, padx=40, pady=10)
+monthdrop.grid(column = 1, row = 1, padx=40, pady=30)
 
 
 # Day drop Down
-def day():
-    day_label = Label(root, text=day_click.get(), background='#4C5F71', fg = "white").grid(column = 2, row = 3, padx=40, pady=10)
-    global day_drop
-    day_drop = day_click.get() 
 
 day_click = StringVar() 
 day_click.set("Select Day")
@@ -88,16 +70,10 @@ day_options = [
 daydrop = OptionMenu(root, day_click, *day_options)
 daydrop.config(bg='#4C5F71', fg = "white", highlightbackground = '#4C5F71')
 daydrop["menu"].config(bg='#4C5F71', fg = "white")
-daydrop.grid(column = 2, row = 1, padx=40, pady=10)
+daydrop.grid(column = 2, row = 1, padx=40, pady=30)
 
-# Day Display selection
-daybutton = Button(root, text = "Show Day", command = day, background='#4C5F71', fg = "white").grid(column = 2, row = 2, padx=40, pady=10)
 
 # Year drop Down
-def year():
-    year_label = Label(root, text=year_click.get(), background='#4C5F71', fg = "white").grid(column = 3, row = 3, padx=40, pady=10)
-    global year_drop
-    year_drop = year_click.get()
 
 year_click = StringVar()
 year_click.set("Select Year")
@@ -109,12 +85,7 @@ year_options = [
 yeardrop = OptionMenu(root, year_click, *year_options)
 yeardrop.config(bg='#4C5F71', fg = "white", highlightbackground = '#4C5F71')
 yeardrop["menu"].config(bg='#4C5F71', fg = "white")
-yeardrop.grid(column = 3, row = 1, padx=40, pady=10)
-
-# Year Display selection
-yearbutton = Button(root, text = "Show Year", command = year, background='#4C5F71', fg = "white").grid(column = 3, row = 2, padx=40, pady=10)
-
-
+yeardrop.grid(column = 3, row = 1, padx=40, pady=30)
 
 address = StringVar()
 email_body = StringVar()
@@ -125,20 +96,18 @@ def destroy_window():
 def send_message():
     address_info = address_entry.get()
     email_body_info = email_body_entry.get()
-    #print(address_info,email_body_info)
     sender_email = "bamreport302@gmail.com"
     sender_password = "Fullstack2011"   
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
     server.login(sender_email,sender_password)
     print("Login successful")
-#    server.sendmail(sender_email,address_info,email_body_info)
     print("Message sent")
 # Create a multipart message and set headers
     message = MIMEMultipart()
 # Add body to email
     message.attach(MIMEText(email_body_info, "plain"))
-    filename = "user_input.pdf"  # In same directory as script with your .pdf file
+    filename = "bamreport.pdf"  # In same directory as script with your .pdf file
 # Open PDF file in binary mode
     with open(filename, "rb") as attachment:
     # Add file as application/octet-stream
@@ -285,7 +254,7 @@ strategicrec.grid(column = 2, columnspan =2, row =14)
 
 #PDF formatting
 def generatePDF():
-    canvas = Canvas("user_input.pdf")
+    canvas = Canvas("bamreport.pdf")
     user_in_lines = user_in.split('\n') 
     wrapper = TextWrapper() 
     user_in_wrapped_lines = list() 
@@ -314,10 +283,10 @@ def generatePDF():
 def submit():
     incident_selection() 
     global user_in, root
-    report_type_input = "- Report Type: " + '\n' + '     - ' + report_type + '\n' + ' '
-    month_drop_input = "- Date: " + month_drop
-    day_drop_input = day_drop
-    year_drop_input = year_drop
+    report_type_input = "- Report Type: " + '\n' + '     - ' + reporttype_click.get() + '\n' + ' '
+    month_drop_input = "- Date: " + month_click.get()
+    day_drop_input = day_click.get()
+    year_drop_input = year_click.get()
     time_input = "- Time of Incident: " + '\n' + '     - ' + time.get(1.0, "end-1c") + '\n' + ' '
     incident_list_input = "- Type of Incident: " + '\n' "     - "+ "".join(incident_list)
     affected_input = "- Affected Applications/User Accounts/Networks: "  + '\n' + '     - '+ affected.get(1.0, "end-1c")
