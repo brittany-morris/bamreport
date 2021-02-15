@@ -96,8 +96,8 @@ def destroy_window():
 def send_message():
     address_info = address_entry.get()
     email_body_info = email_body_entry.get()
-    sender_email = "bamreport302@gmail.com"
-    sender_password = "Fullstack2011"   
+    sender_email = "ENTER EMAIL"
+    sender_password = "ENTER EMAIL PASSWORD"   
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
     server.login(sender_email,sender_password)
